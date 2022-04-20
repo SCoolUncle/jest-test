@@ -1,26 +1,33 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "module": "esnext",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
-    ],
+    ], // 编译过程中需要引入的库文件列表
+    // "typeRoots": ["/node_modules/@types/"], // 要包含的类型声明文件路径列表
     "allowJs": true,
-    "skipLibCheck": true,
+    "sourceMap": true,
+    "skipLibCheck": true, // 忽略所有的声明文件 *.d.ts 的类型检查
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
+    "forceConsistentCasingInFileNames": true, // 禁止对同一个文件不一致的引用
+    "noUnusedLocals": true, // 若有未使用的局部变量则报错
+    "noUnusedParameters": true, // 若有未使用的参数则报错
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
+    "noImplicitAny": false, // 表达式中或者声明上有隐性的any类型时报错
+    "experimentalDecorators": true, // 启用实验性的es装饰器
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "preserve"
   },
   "include": [
     "src"
-  ]
+  ],
+  "exclude": ["node_modules","dist","**/*.js"]
 }
